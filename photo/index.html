@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>springboot | why_bolg</title>
-  <meta name="keywords" content=" springboot ">
-  <meta name="description" content="springboot | why_bolg">
+  <title>photo | why_bolg</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="photo | why_bolg">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="photo">
@@ -551,34 +551,19 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-springboot" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">springboot</h1>
+        <h1 class="article-title">photo</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="spring">spring</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color1">springboot</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-09-06 20:01:37'>2020-08-15 11:13</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-04 16:29:55'>2020-07-04 16:29</time>
         
     </div>
     <div class="article-meta">
@@ -611,7 +596,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-spring%E5%85%A5%E9%97%A8helloworld"><span class="toc-text">1.spring入门helloworld</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8Java%E4%BB%A3%E7%A0%81%E9%85%8D%E7%BD%AE"><span class="toc-text">2.使用Java代码配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%A5%E5%B1%9E%E6%80%A7%E6%96%B9%E5%BC%8F%E6%B3%A8%E5%85%A5"><span class="toc-text">3.以属性方式注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-yml%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-text">4.yml文件配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86"><span class="toc-text">5.自动配置原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%BF%AE%E6%94%B9%E8%87%AA%E5%B7%B1%E6%83%B3%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">6.修改自己想要的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%B7%BB%E5%8A%A0%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="toc-text">7.添加拦截器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E9%85%8D%E7%BD%AE-springboot-%E8%87%AA%E5%B8%A6%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="toc-text">8.配置 springboot 自带的数据库连接池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-spring-boot-%E6%95%B4%E5%90%88mybits"><span class="toc-text">9.spring boot 整合mybits</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E6%95%B4%E5%90%88%E9%80%9A%E7%94%A8mapper"><span class="toc-text">10.整合通用mapper</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-spring-boot-%E6%95%B4%E5%90%88junit"><span class="toc-text">11.spring boot 整合junit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-springboot-%E6%95%B4%E5%90%88redis"><span class="toc-text">12.springboot 整合redis</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -627,236 +612,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-spring入门helloworld"><a href="#1-spring入门helloworld" class="headerlink" title="1.spring入门helloworld"></a>1.spring入门helloworld</h2><p>创建一个spring boot项目，编写controller，运行主方法。很简单，省略。</p>
-<h2 id="2-使用Java代码配置"><a href="#2-使用Java代码配置" class="headerlink" title="2.使用Java代码配置"></a>2.使用Java代码配置</h2><p>以配置数据库连接池为例</p>
-<ol>
-<li><p>添加依赖；</p>
-</li>
-<li><p>创建数据库；</p>
-</li>
-<li><p>创建数据库连接参数的配置文件jdbc.properties；</p>
-</li>
-<li><p>创建配置类；</p>
-</li>
-<li><p>改造处理器类注入数据源并使用</p>
-<pre><code class="java">package com.itheima.config;
-
-import com.alibaba.druid.pool.DruidDataSource;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-
-import javax.sql.DataSource;
-
-@Configuration
-@PropertySource(&quot;classpath:jdbc.properties&quot;)
-public class JdbcConfig &#123;
-
-    @Value(&quot;$&#123;jdbc.url&#125;&quot;)
-    String url;
-    @Value(&quot;$&#123;jdbc.driverClassName&#125;&quot;)
-    String driverClassName;
-    @Value(&quot;$&#123;jdbc.username&#125;&quot;)
-    String username;
-    @Value(&quot;$&#123;jdbc.password&#125;&quot;)
-    String password;
-
-    @Bean
-    public DataSource dataSource()&#123;
-        DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setDriverClassName(driverClassName);
-        dataSource.setUrl(url);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-        return dataSource;
-    &#125;
-
-&#125;    
-</code></pre>
-<p>​</p>
-</li>
-</ol>
-<h2 id="3-以属性方式注入"><a href="#3-以属性方式注入" class="headerlink" title="3.以属性方式注入"></a>3.以属性方式注入</h2><p>步骤：</p>
-<ol>
-<li>创建配置项类JdbcProperties类，在该类名上面添加@ConfigurationProperties；</li>
-<li>将jdbc.properties修改名称为application.properties；</li>
-<li>将JdbcProperties对象注入到JdbcConfig；</li>
-</ol>
-<pre><code class="java">@ConfigurationProperties(prefix = &quot;jdbc&quot;)
-public class JdbcProperties &#123;
-
-    private String url;
-    private String driverClassName;
-    private String username;
-    private String password;
-
-    public String getUrl() &#123;
-        return url;
-    &#125;
-
-    public void setUrl(String url) &#123;
-        this.url = url;
-    &#125;
-
-    public String getDriverClassName() &#123;
-        return driverClassName;
-    &#125;
-
-    public void setDriverClassName(String driverClassName) &#123;
-        this.driverClassName = driverClassName;
-    &#125;
-
-    public String getUsername() &#123;
-        return username;
-    &#125;
-
-    public void setUsername(String username) &#123;
-        this.username = username;
-    &#125;
-
-    public String getPassword() &#123;
-        return password;
-    &#125;
-
-    public void setPassword(String password) &#123;
-        this.password = password;
-    &#125;
-&#125;</code></pre>
-<pre><code class="java"> @Bean
-    @ConfigurationProperties(prefix = &quot;jdbc&quot;)
-    public DataSource dataSource() &#123;
-        return new DruidDataSource();
-    &#125;</code></pre>
-<h2 id="4-yml文件配置"><a href="#4-yml文件配置" class="headerlink" title="4.yml文件配置"></a>4.yml文件配置</h2><p>文件名称 application.yml</p>
-<p>例子：</p>
-<pre><code class="yml">jdbc:
-  driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql://127.0.0.1:3306/heima
-  username: root
-  password: root</code></pre>
-<p><em>多个yml配置文件；在spring boot中是被允许的。这些配置文件的名称必须为application-**</em>.yml，并且这些配置文件必须要在application.yml配置文件中激活之后才可以使用。*</p>
-<p><em>如果properties和yml配置文件同时存在在spring boot项目中；那么这两类配置文件都有效。在两个配置文件中如果存在同名的配置项的话会以properties文件的为主。</em></p>
-<p>多个文件的激活方式：</p>
-<pre><code class="yml">#激活配置文件;需要指定其它的配置文件名称
-spring:
-  profiles:
-    active: xxx，yyy</code></pre>
-<h2 id="5-自动配置原理"><a href="#5-自动配置原理" class="headerlink" title="5.自动配置原理"></a>5.自动配置原理</h2><p>在 <code>META-INF\spring.fatories</code>文件中定义了很多自动配置类；可以根据在pom.xml文件中添加的 启动器依赖自动配置组件</p>
-<p>通过如下流程可以去修改application配置文件，改变自动配置的组件默认参数</p>
-<p><img src="https://s1.ax1x.com/2020/09/06/we5458.png" alt="we5458.png"></p>
-<h2 id="6-修改自己想要的配置"><a href="#6-修改自己想要的配置" class="headerlink" title="6.修改自己想要的配置"></a>6.修改自己想要的配置</h2><p>比如：服务器的端口‘</p>
-<pre><code class="yml">#tomcat端口
-server:
-  port: 80</code></pre>
-<p>静态资源可存放的目录：</p>
-<p>*classpath: /META-INFO/resources/“, classpath: /resources/,<br>“classpath: /static/“, “classpath: /public/“ *</p>
-<h2 id="7-添加拦截器"><a href="#7-添加拦截器" class="headerlink" title="7.添加拦截器"></a>7.添加拦截器</h2><pre><code class="java">package com.itheima.config;
-
-import com.itheima.interceptor.MyInterceptor;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-@Configuration
-public class MvcConfig implements WebMvcConfigurer &#123;
-
-    //注册拦截器
-    @Bean
-    public MyInterceptor myInterceptor()&#123;
-        return new MyInterceptor();
-    &#125;
-
-    //添加拦截器到spring mvc拦截器链
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) &#123;
-        registry.addInterceptor(myInterceptor()).addPathPatterns(&quot;/*&quot;);
-    &#125;
-&#125;
-</code></pre>
-<h2 id="8-配置-springboot-自带的数据库连接池"><a href="#8-配置-springboot-自带的数据库连接池" class="headerlink" title="8.配置 springboot 自带的数据库连接池"></a>8.配置 springboot 自带的数据库连接池</h2><pre><code class="java">spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/springboot_test
-    username: root
-    password: root
-</code></pre>
-<h2 id="9-spring-boot-整合mybits"><a href="#9-spring-boot-整合mybits" class="headerlink" title="9.spring boot 整合mybits"></a>9.spring boot 整合mybits</h2><p>导入坐标</p>
-<pre><code class="yml">    &lt;!--mybatis --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
-        &lt;version&gt;2.0.1&lt;/version&gt;
-    &lt;/dependency&gt;</code></pre>
-<p>修改配置</p>
-<pre><code class="yml">mybatis:
-  # 实体类别名包路径
-  type-aliases-package: com.itheima.pojo
-  # 映射文件路径
-  # mapper-locations: classpath:mappers/*.xml
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl</code></pre>
-<p>设置包扫描，省略</p>
-<h2 id="10-整合通用mapper"><a href="#10-整合通用mapper" class="headerlink" title="10.整合通用mapper"></a>10.整合通用mapper</h2><ol>
-<li>添加启动器依赖；</li>
-<li>改造UserMapper继承Mapper<User>；</li>
-<li>修改启动引导类Application中的Mapper扫描注解；</li>
-<li>修改User实体类添加jpa注解；</li>
-<li>改造UserService实现业务功能；</li>
-</ol>
-<h2 id="11-spring-boot-整合junit"><a href="#11-spring-boot-整合junit" class="headerlink" title="11.spring boot 整合junit"></a>11.spring boot 整合junit</h2><pre><code class="java">@RunWith(SpringRunner.class)
-@SpringBootTest
-public class UserServiceTest &#123;
-
-&#125;
-</code></pre>
-<h2 id="12-springboot-整合redis"><a href="#12-springboot-整合redis" class="headerlink" title="12.springboot 整合redis"></a>12.springboot 整合redis</h2><pre><code class="java">@RunWith(SpringRunner.class)
-@SpringBootTest
-public class RedisTest &#123;
-
-    @Autowired
-    private RedisTemplate redisTemplate;
-
-    @Test
-    public void test()&#123;
-        //string 字符串
-        //redisTemplate.opsForValue().set(&quot;str&quot;, &quot;heima&quot;);
-        redisTemplate.boundValueOps(&quot;str&quot;).set(&quot;heima&quot;);
-        System.out.println(&quot;str = &quot; + redisTemplate.opsForValue().get(&quot;str&quot;));
-
-        //hash 散列
-        redisTemplate.boundHashOps(&quot;h_key&quot;).put(&quot;name&quot;, &quot;heima&quot;);
-        redisTemplate.boundHashOps(&quot;h_key&quot;).put(&quot;age&quot;, 13);
-        //获取所有域
-        Set set = redisTemplate.boundHashOps(&quot;h_key&quot;).keys();
-        System.out.println(&quot; hash散列的所有域：&quot; + set);
-        //获取所有值
-        List list = redisTemplate.boundHashOps(&quot;h_key&quot;).values();
-        System.out.println(&quot; hash散列的所有域的值：&quot; + list);
-
-        //list 列表
-        redisTemplate.boundListOps(&quot;l_key&quot;).leftPush(&quot;c&quot;);
-        redisTemplate.boundListOps(&quot;l_key&quot;).leftPush(&quot;b&quot;);
-        redisTemplate.boundListOps(&quot;l_key&quot;).leftPush(&quot;a&quot;);
-        //获取全部元素
-        list = redisTemplate.boundListOps(&quot;l_key&quot;).range(0, -1);
-        System.out.println(&quot; list列表中的所有元素：&quot; + list);
-
-        // set 集合
-        redisTemplate.boundSetOps(&quot;s_key&quot;).add(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
-        set = redisTemplate.boundSetOps(&quot;s_key&quot;).members();
-        System.out.println(&quot; set集合中的所有元素：&quot; + set);
-
-        // sorted set 有序集合
-        redisTemplate.boundZSetOps(&quot;z_key&quot;).add(&quot;a&quot;, 30);
-        redisTemplate.boundZSetOps(&quot;z_key&quot;).add(&quot;b&quot;, 20);
-        redisTemplate.boundZSetOps(&quot;z_key&quot;).add(&quot;c&quot;, 10);
-        set = redisTemplate.boundZSetOps(&quot;z_key&quot;).range(0, -1);
-        System.out.println(&quot; zset有序集合中的所有元素：&quot; + set);
-    &#125;
-&#125;</code></pre>
-
+        
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 why199627@gmail.com </span>
     </div>
