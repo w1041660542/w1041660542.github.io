@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>java枚举类 | why_bolg</title>
-  <meta name="keywords" content=" 原创 , java基础 ">
-  <meta name="description" content="java枚举类 | why_bolg">
+  <title>SSH 远程阿里云报错 | why_bolg</title>
+  <meta name="keywords" content=" ssh ">
+  <meta name="description" content="SSH 远程阿里云报错 | why_bolg">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="photo">
@@ -591,9 +591,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-java枚举" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-cuo1" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">java枚举类</h1>
+        <h1 class="article-title">SSH 远程阿里云报错</h1>
     
     <div class="article-meta">
         
@@ -603,7 +603,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="java">java</a>
+            <a  data-rel="调错记录">调错记录</a>
             
         </span>
         
@@ -611,16 +611,14 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">原创</a>
-            
-            <a class="color2">java基础</a>
+            <a class="color4">ssh</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-06 21:24:46'>2020-07-06 21:13</time>
+            发布时间 : <time class="date" title='最后更新: 2020-12-20 17:32:58'>2020-10-30 17:14</time>
         
     </div>
     <div class="article-meta">
@@ -653,7 +651,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%EF%BC%9A%E4%BD%BF%E7%94%A8enum%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%AF%E4%BB%A5%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E6%9E%9A%E4%B8%BE%E7%B1%BB%EF%BC%8C%E7%9B%B8%E5%BD%93%E4%BA%8E%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E7%B1%BB%E7%BB%A7%E6%89%BFjava-lang-Enum"><span class="toc-text">基本用法：使用enum关键字可以定义一个枚举类，相当于定义一个类继承java.lang.Enum</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E9%98%BF%E9%87%8C%E4%BA%91%E6%8A%A5%E9%94%99"><span class="toc-text">远程阿里云报错</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -669,41 +667,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="基本用法：使用enum关键字可以定义一个枚举类，相当于定义一个类继承java-lang-Enum"><a href="#基本用法：使用enum关键字可以定义一个枚举类，相当于定义一个类继承java-lang-Enum" class="headerlink" title="基本用法：使用enum关键字可以定义一个枚举类，相当于定义一个类继承java.lang.Enum"></a>基本用法：使用enum关键字可以定义一个枚举类，相当于定义一个类继承java.lang.Enum</h3><p>一个最简单的枚举：</p>
-<pre><code>public enum Color &#123;
-
- RED, GREEN, BLANK, YELLOW 
-
-&#125; </code></pre>
-<p>关于星期的枚举：</p>
-<pre><code>public enum Week &#123;
-    MONDAY(&quot;星期一&quot;),
-    TUESDAY(&quot;星期二&quot;),
-    WEDNESDAY(&quot;星期三&quot;),
-    THURSDAY(&quot;星期四&quot;),
-    FRIDAY(&quot;星期五&quot;),
-    SATURDAY(&quot;星期六&quot;),
-    SUNDAY(&quot;星期日&quot;);
-
-
-    private String name;
-    private int index;
-
-    private Week(String name，int index) &#123;
-        this.name=name;
-        this.index = index;
-    &#125;
-    public int getIndex() &#123;
-        return index;
-    &#125;
-
-    public String getNanem() &#123;
-        return name;
-    &#125;
-&#125;</code></pre>
-<p>在构造方法中，第一个参数代表枚举的名称，第二个参数代表枚举的编号，从0开始。</p>
-<p>枚举的方法如下图所示：</p>
-<p><img src="https://s1.ax1x.com/2020/07/06/UC6U2j.jpg" alt="UC6U2j.jpg"></p>
+        <h3 id="远程阿里云报错"><a href="#远程阿里云报错" class="headerlink" title="远程阿里云报错"></a>远程阿里云报错</h3><p>问题：修改了实例密码，重启实例，使用secureCrt远程连接，报错</p>
+<p>出现The remote system refused the connection提示，原因linux服务器没用启动ssh服务。</p>
+<p>解决：</p>
+<p>进入网页的控制台，重启ssh服务。</p>
+<p>如果没有安装，需要先安装</p>
+<pre><code class="linux">sudo apt-get install openssh-server</code></pre>
+<p>然后启用：</p>
+<pre><code>systemctl start sshd</code></pre>
+<p>报错：Job for sshd.service failed because the control process exited with error</p>
+<p>原因：sshd_config 中配置错误，去修改。</p>
+<p>继续重启ssh，成功。</p>
+<p>远程连接，成功。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 why199627@gmail.com </span>
