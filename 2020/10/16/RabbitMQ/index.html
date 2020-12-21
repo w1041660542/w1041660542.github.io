@@ -618,7 +618,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-21 11:09:32'>2020-10-16 20:14</time>
+            发布时间 : <time class="date" title='最后更新: 2020-12-21 11:21:59'>2020-10-16 20:14</time>
         
     </div>
     <div class="article-meta">
@@ -670,10 +670,10 @@
         <h3 id="1-什么是RabbitMQ"><a href="#1-什么是RabbitMQ" class="headerlink" title="1.什么是RabbitMQ"></a>1.什么是RabbitMQ</h3><p>RabbitMQ是一款使用Erlang语言开发的、轻量级的、功能非常的强大的消息中间件。</p>
 <h3 id="2-它是用来做什么的？"><a href="#2-它是用来做什么的？" class="headerlink" title="2.它是用来做什么的？"></a>2.它是用来做什么的？</h3><p>举一个例子：会员登陆操作。</p>
 <p>在传统的方式中，经行会员登陆执行完之后都需要到数据库中经行更新相应的操作，而使用消息队列，取而代之的是发送一条会员登陆消息，该消息包含了数据库更新所需的相关内容，而消费者应用程序则被设计成可以独立更新数据表。这条登录消息并不包含会员认证信息，相反，它只包含需要在各种数据库和应用中维护会员最新登录状态的相关内容。这就为我们进行数据库水平扩展（horizontally scale）提供了更多的控制权。</p>
-<p><img src="/2020/10/16/RabbitMQ/blogs\source_posts\Snipaste_2020-12-20_11-03-04.png" alt="Snipaste_2020-12-20_11-03-04"></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/rwE4W8"><img src="https://s3.ax1x.com/2020/12/21/rwE4W8.png" alt="rwE4W8.png"></a></p>
 <p>这样做的优点就是松耦合。</p>
 <h3 id="3-AMQP高级消息队列协议"><a href="#3-AMQP高级消息队列协议" class="headerlink" title="3.AMQP高级消息队列协议"></a>3.AMQP高级消息队列协议</h3><p>是具有现代特征点的二进制协议。是一个提供统一消息服务的应用曾标准高级消息队列协议，是应用层协议的一个开发标准，未面向消息的中间件设计。</p>
-<p><img src="/2020/10/16/RabbitMQ/blogs\source_posts\Snipaste_2020-12-20_11-15-00.png" alt="Snipaste_2020-12-20_11-15-00"></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/rwE7Lj"><img src="https://s3.ax1x.com/2020/12/21/rwE7Lj.png" alt="rwE7Lj.png"></a></p>
 <h3 id="4-安装"><a href="#4-安装" class="headerlink" title="4.安装"></a>4.安装</h3><p>下载：<br>wget <a target="_blank" rel="noopener" href="http://www.rabbitmq.com/releases/erlang/erlang-18.3-1.el7.centos.x86_64.rpm">www.rabbitmq.com/releases/erlang/erlang-18.3-1.el7.centos.x86_64.rpm</a><br>wget <a target="_blank" rel="noopener" href="http://repo.iotti.biz/CentOS/7/x86_64/socat-1.7.3.2-5.el7.lux.x86_64.rpm">http://repo.iotti.biz/CentOS/7/x86_64/socat-1.7.3.2-5.el7.lux.x86_64.rpm</a><br>wget <a target="_blank" rel="noopener" href="http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.5/rabbitmq-server-3.6.5-1.noarch.rpm">www.rabbitmq.com/releases/rabbitmq-server/v3.6.5/rabbitmq-server-3.6.5-1.noarch.rpm</a></p>
 <p>安装过程中会提示缺少依赖，缺什么使用yum install xxx 安装就可以了。</p>
 <p>配置文件：<br>vim /usr/lib/rabbitmq/lib/rabbitmq_server-3.6.5/ebin/rabbit.app</p>
@@ -681,7 +681,7 @@
 <p>启动：</p>
 <p>rabbitmq-server start</p>
 <p>管理插件：rabbitmq-plugins enable rabbitmq_management<br>访问地址：<a target="_blank" rel="noopener" href="http://ip:15672/">http://ip:15672/</a></p>
-<h4 id="4-1rabbitmqctl-命令"><a href="#4-1rabbitmqctl-命令" class="headerlink" title="4.1rabbitmqctl 命令"></a>4.1rabbitmqctl 命令</h4><p><img src="/2020/10/16/RabbitMQ/blogs\source_posts\Snipaste_2020-12-21_10-55-04.png" alt="Snipaste_2020-12-21_10-55-04"></p>
+<h4 id="4-1rabbitmqctl-命令"><a href="#4-1rabbitmqctl-命令" class="headerlink" title="4.1rabbitmqctl 命令"></a>4.1rabbitmqctl 命令</h4><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/rwEbes"><img src="https://s3.ax1x.com/2020/12/21/rwEbes.png" alt="rwEbes.png"></a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 why199627@gmail.com </span>
