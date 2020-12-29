@@ -209,7 +209,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(20)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(21)</small></div></li>
     
         
             
@@ -269,7 +269,7 @@
     
         
             
-            <li><div data-rel="java">java<small>(8)</small></div>
+            <li><div data-rel="java">java<small>(9)</small></div>
                 
             </li>
             
@@ -293,7 +293,7 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="20">
+<input type="hidden" id="yelog_site_posts_number" value="21">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -376,6 +376,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>java并发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>java多线程</a>
             </li>
         
@@ -436,6 +440,14 @@
            data-author="" >
             <span class="post-title" title="记录搭建hexo博客遇到一些坑">记录搭建hexo博客遇到一些坑</span>
             <span class="post-date" title="2020-07-04 15:13:47">2020/07/04</span>
+        </a>
+        
+        <a  class="全部文章 java "
+           href="/2020/12/01/java%E5%B9%B6%E5%8F%91/"
+           data-tag="java并发"
+           data-author="" >
+            <span class="post-title" title="java 并发">java 并发</span>
+            <span class="post-date" title="2020-12-01 21:13:27">2020/12/01</span>
         </a>
         
         <a  class="全部文章 调错记录 "
@@ -618,7 +630,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-09-07 21:22:24'>2020-08-20 21:22</time>
+            发布时间 : <time class="date" title='最后更新: 2020-12-21 17:12:11'>2020-08-20 21:22</time>
         
     </div>
     <div class="article-meta">
@@ -651,7 +663,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-webservice-%E6%A6%82%E5%BF%B5"><span class="toc-text">1. webservice 概念</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-webservice-%E6%A6%82%E5%BF%B5"><span class="toc-text">1. webservice 概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-text">2.快速入门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-cxf-%E6%A1%86%E6%9E%B6%E5%AE%9E%E7%8E%B0"><span class="toc-text">3.cxf 框架实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-spring-%E6%95%B4%E5%90%88cxf"><span class="toc-text">4.spring 整合cxf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%9F%BA%E4%BA%8EAxis%E7%9A%84WebService"><span class="toc-text">5.基于Axis的WebService</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -671,14 +683,208 @@
 <p>　　<strong>XML+XSD,SOAP和WSDL就是构成WebService平台的三大技术。</strong></p>
 <p>三种规范：</p>
 <ol>
-<li><p>JAX-WS( Java API For Xml-webservice),JDK1.6自带的版本为AXWS2.1,其底层支持为AXB。JAX-WS(JSR224)规范的AP位于 javax,xmws.*包,其中大部分都是注解,提供AI操作Web服务(通常在客户端使用的较多,由于客户端可以借助SDK生成,因此这个包中的API我们较少会直接使用)。</p>
-</li>
-<li><p>JAXM&amp;SAAJ（省略）</p>
-</li>
-<li><p>JAX-RS:JAX-RS是JAVA针对REST( Representationstate Transfer)风格制定的一套Web服务规</p>
-<p>​</p>
-</li>
+<li>JAX-WS( Java API For Xml-webservice),JDK1.6自带的版本为AXWS2.1,其底层支持为AXB。JAX-WS(JSR224)规范的AP位于 javax,xmws.*包,其中大部分都是注解,提供AI操作Web服务(通常在客户端使用的较多,由于客户端可以借助SDK生成,因此这个包中的API我们较少会直接使用)。</li>
+<li>JAXM&amp;SAAJ（省略）</li>
+<li>JAX-RS:JAX-RS是JAVA针对REST( Representationstate Transfer)风格制定的一套Web服务规</li>
 </ol>
+<h3 id="2-快速入门"><a href="#2-快速入门" class="headerlink" title="2.快速入门"></a>2.快速入门</h3><p>server：</p>
+<pre><code class="java">package org.zttc.service;
+
+import javax.xml.ws.Endpoint;
+
+public class MyServer &#123;
+
+    public static void main(String[] args) &#123;
+        String address = &quot;http://localhost:8888/ns&quot;;
+        Endpoint.publish(address, new MyServiceImpl());
+    &#125;
+
+&#125;
+</code></pre>
+<p>client：</p>
+<pre><code class="java">package org.zttc.service;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+
+public class TestClient &#123;
+    public static void main(String[] args) &#123;
+        try &#123;
+            //创建访问wsdl服务地址的url
+            URL url = new URL(&quot;http://localhost:8888/ns?wsdl&quot;);
+            //通过Qname指明服务的具体信息
+            QName sname = new QName(&quot;http://service.zttc.org/&quot;, &quot;MyServiceImplService&quot;);
+            //创建服务
+            Service service = Service.create(url,sname);
+            //实现接口
+            IMyService ms = service.getPort(IMyService.class);
+            System.out.println(ms.add(12,33));
+            //以上服务有问题，依然依赖于IMyServie接口
+        &#125; catch (MalformedURLException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;</code></pre>
+<h3 id="3-cxf-框架实现"><a href="#3-cxf-框架实现" class="headerlink" title="3.cxf 框架实现"></a>3.cxf 框架实现</h3><p>创建maven项目，导入依赖</p>
+<pre><code class="java">&lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;4.11&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+    &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+    &lt;artifactId&gt;cxf-rt-frontend-jaxws&lt;/artifactId&gt;
+    &lt;version&gt;3.1.1&lt;/version&gt;
+  &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+      &lt;artifactId&gt;cxf-rt-transports-http&lt;/artifactId&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+      &lt;artifactId&gt;cxf-rt-frontend-jaxrs&lt;/artifactId&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- Jetty is needed if you&#39;re are not using the CXFServlet --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+      &lt;artifactId&gt;cxf-rt-transports-http-jetty&lt;/artifactId&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+      &lt;artifactId&gt;slf4j-simple&lt;/artifactId&gt;
+      &lt;version&gt;1.7.12&lt;/version&gt;
+    &lt;/dependency&gt;</code></pre>
+<p><strong>创建想要发布的接口和实现类</strong></p>
+<p>创建服务端</p>
+<pre><code class="java">package com.why.service;
+
+import com.why.service.impl.MyServiceImpl;
+import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
+
+public class Server &#123;
+
+    public static void main(String[] args) &#123;
+        JaxWsServerFactoryBean factory =  new JaxWsServerFactoryBean();
+        factory.setAddress(&quot;http://localhost:8000/ws/hello&quot;);
+        factory.setServiceBean(new MyServiceImpl());
+        factory.create();
+        System.out.println(&quot;服务已发布&quot;);
+
+
+    &#125;
+&#125;
+</code></pre>
+<p>创建客户端</p>
+<pre><code class="java">package com.why.service;
+
+import jdk.nashorn.internal.ir.CallNode;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+
+public class Client &#123;
+
+    public static void main(String[] args) &#123;
+
+        JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+        factory.setAddress(&quot;http://localhost:8000/ws/hello&quot;);
+        factory.setServiceClass(MyService.class);
+        MyService myService = factory.create(MyService.class);
+        String message = myService.hello(&quot;why&quot;);
+        System.out.println(message);
+
+
+    &#125;
+
+&#125;</code></pre>
+<h3 id="4-spring-整合cxf"><a href="#4-spring-整合cxf" class="headerlink" title="4.spring 整合cxf"></a>4.spring 整合cxf</h3><p>。。。</p>
+<h3 id="5-基于Axis的WebService"><a href="#5-基于Axis的WebService" class="headerlink" title="5.基于Axis的WebService"></a>5.基于Axis的WebService</h3><blockquote>
+<p>　本质上而言，Axis的WebService在数据传输时用的就是<strong>基于HTTP协议的POST请求</strong>，调用WebService接口实际上就是在HTTP header里添加SOAPAction头，然后请求体里发送的是XML格式的数据，即SOAP报文，内部包括请求方法、请求参数等信息。</p>
+</blockquote>
+<p>​    客户端可以通过服务端提供的服务类的wsdl文件<strong>在本地生成一个服务类代理</strong>，使得客户端调用服务端的接口可以通过new一个本地代理类对象并调用实例方法来实现；比如服务代理类叫ATestProxy，那么调用WebService接口可以直接是</p>
+<p>服务端：</p>
+<ol>
+<li> 下载axis2.war拷贝至tomcat安装目录下的webapps文件夹</li>
+<li>配置web.xml </li>
+</ol>
+<pre><code class="xml">&lt;servlet&gt;
+    &lt;servlet-name&gt;AxisServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.apache.axis2.transport.http.AxisServlet&lt;/servlet-class&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;  
+ &lt;servlet-name&gt;AxisServlet&lt;/servlet-name&gt;  
+ &lt;url-pattern&gt;/services/*&lt;/url-pattern&gt;  
+&lt;/servlet-mapping&gt; </code></pre>
+<p>3.把tomcat安装目录下的webapps/axis2/WEB-INF下的modules、service和conf文件件拷至HelloWorld这个web工程的WEB-INF目录下。把lib下的如下jar包拷过去。然后再services下新建 ：工程名/META-INF，本例就是HelloWorld/META-INF路径，META-INF下新建services.xml，内容如下</p>
+<pre><code class="xml">&lt;service name=&quot;HelloWorld&quot;&gt;  
+    &lt;description&gt;  
+        HelloWorld Service Example
+    &lt;/description&gt;  
+    &lt;parameter name=&quot;ServiceClass&quot;&gt;  
+        com.cm.service.HelloWorld
+    &lt;/parameter&gt;  
+    &lt;operation name=&quot;sayHello&quot;&gt;  
+        &lt;messageReceiver class=&quot;org.apache.axis2.rpc.receivers.RPCMessageReceiver&quot; /&gt;  
+    &lt;/operation&gt;  
+    &lt;operation name=&quot;saySorry&quot;&gt;  
+        &lt;messageReceiver class=&quot;org.apache.axis2.rpc.receivers.RPCMessageReceiver&quot; /&gt;  
+    &lt;/operation&gt;  
+    &lt;operation name=&quot;getWorld&quot;&gt;  
+        &lt;messageReceiver class=&quot;org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver&quot; /&gt;  
+    &lt;/operation&gt;  
+&lt;/service&gt;</code></pre>
+<p>客户端：</p>
+<p>call 方式</p>
+<pre><code class="java">/**
+ * call直接调用
+ * @param param
+ */
+public static void call(String param) &#123;
+    try &#123;
+        Service service = new Service();
+        Call call = (Call) service.createCall();
+        call.setTargetEndpointAddress(new URL(url));
+        call.setEncodingStyle(&quot;utf-8&quot;);
+        //设置SOAPAction
+        call.setUseSOAPAction(true);
+        call.setSOAPActionURI(&quot;http://webxml.com.cn/toTraditionalChinese&quot;);
+        //设置Soap协议版本
+        call.setSOAPVersion(SOAPConstants.SOAP11_CONSTANTS);
+        //call.setSOAPVersion(SOAPConstants.SOAP12_CONSTANTS);
+
+        call.addParameter(new QName(targetNamespace, &quot;sText&quot;), XMLType.XSD_STRING, ParameterMode.IN);
+        call.setOperationName(new QName(targetNamespace, &quot;toTraditionalChinese&quot;));
+        String result = (String) call.invoke(new Object[]&#123;param&#125;);
+        System.out.println(&quot;call结果：&quot; + result);
+    &#125; catch (Exception e) &#123;
+        e.printStackTrace();
+    &#125;
+&#125;</code></pre>
+<p>生成代码</p>
+<pre><code>cd %AXIS_HOME%/lib
+java -cp axis.jar;commons-logging-1.0.4.jar;commons-discovery-0.2.jar;jaxrpc.jar;wsdl4j-1.5.1.jar;saaj.jar org.apache.axis.wsdl.WSDL2Java http://www.webxml.com.cn/WebServices/TraditionalSimplifiedWebService.asmx?wsdl</code></pre>
+<p>导入IDE</p>
+<pre><code class="java">/**
+     * 利用wsdl2java生成代码调用WebService
+     * @param param
+     */
+    public static void wsdl2java(String param) &#123;
+        try &#123;
+            TraditionalSimplifiedWebService service = new TraditionalSimplifiedWebServiceLocator();
+            String result = service.getTraditionalSimplifiedWebServiceSoap().toTraditionalChinese(param);
+            System.out.println(&quot;wsdl2java soap1.1结果：&quot; + result);
+            result = service.getTraditionalSimplifiedWebServiceSoap12().toTraditionalChinese(param);
+            System.out.println(&quot;wsdl2java soap1.2结果：&quot; + result);
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 why199627@gmail.com </span>

@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>java枚举类 | why_bolg</title>
-  <meta name="keywords" content=" 原创 , java基础 ">
-  <meta name="description" content="java枚举类 | why_bolg">
+  <title>java 并发 | why_bolg</title>
+  <meta name="keywords" content=" java并发 ">
+  <meta name="description" content="java 并发 | why_bolg">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="photo">
@@ -603,9 +603,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-java枚举" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-java并发" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">java枚举类</h1>
+        <h1 class="article-title">java 并发</h1>
     
     <div class="article-meta">
         
@@ -623,16 +623,14 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">原创</a>
-            
-            <a class="color2">java基础</a>
+            <a class="color2">java并发</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-06 21:24:46'>2020-07-06 21:13</time>
+            发布时间 : <time class="date" title='最后更新: 2020-12-29 09:15:14'>2020-12-01 21:13</time>
         
     </div>
     <div class="article-meta">
@@ -665,7 +663,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%EF%BC%9A%E4%BD%BF%E7%94%A8enum%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%AF%E4%BB%A5%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E6%9E%9A%E4%B8%BE%E7%B1%BB%EF%BC%8C%E7%9B%B8%E5%BD%93%E4%BA%8E%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E7%B1%BB%E7%BB%A7%E6%89%BFjava-lang-Enum"><span class="toc-text">基本用法：使用enum关键字可以定义一个枚举类，相当于定义一个类继承java.lang.Enum</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81java%E4%B8%AD%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-text">一、java中创建线程的两种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81wait-%E5%92%8Csleep%E3%80%81notify"><span class="toc-text">二、wait 和sleep、notify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81synchronized"><span class="toc-text">三、synchronized</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -681,41 +679,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="基本用法：使用enum关键字可以定义一个枚举类，相当于定义一个类继承java-lang-Enum"><a href="#基本用法：使用enum关键字可以定义一个枚举类，相当于定义一个类继承java-lang-Enum" class="headerlink" title="基本用法：使用enum关键字可以定义一个枚举类，相当于定义一个类继承java.lang.Enum"></a>基本用法：使用enum关键字可以定义一个枚举类，相当于定义一个类继承java.lang.Enum</h3><p>一个最简单的枚举：</p>
-<pre><code>public enum Color &#123;
-
- RED, GREEN, BLANK, YELLOW 
-
-&#125; </code></pre>
-<p>关于星期的枚举：</p>
-<pre><code>public enum Week &#123;
-    MONDAY(&quot;星期一&quot;),
-    TUESDAY(&quot;星期二&quot;),
-    WEDNESDAY(&quot;星期三&quot;),
-    THURSDAY(&quot;星期四&quot;),
-    FRIDAY(&quot;星期五&quot;),
-    SATURDAY(&quot;星期六&quot;),
-    SUNDAY(&quot;星期日&quot;);
-
-
-    private String name;
-    private int index;
-
-    private Week(String name，int index) &#123;
-        this.name=name;
-        this.index = index;
-    &#125;
-    public int getIndex() &#123;
-        return index;
-    &#125;
-
-    public String getNanem() &#123;
-        return name;
-    &#125;
-&#125;</code></pre>
-<p>在构造方法中，第一个参数代表枚举的名称，第二个参数代表枚举的编号，从0开始。</p>
-<p>枚举的方法如下图所示：</p>
-<p><img src="https://s1.ax1x.com/2020/07/06/UC6U2j.jpg" alt="UC6U2j.jpg"></p>
+        <h3 id="一、java中创建线程的两种方式"><a href="#一、java中创建线程的两种方式" class="headerlink" title="一、java中创建线程的两种方式"></a>一、java中创建线程的两种方式</h3><ol>
+<li>创建一个继承Thread类的子类，重写run方法。</li>
+<li>创建一个实现Runable接口的类，实现run方法，将其传入Thread的构造参数。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/r5y0w8"><img src="https://s3.ax1x.com/2020/12/27/r5y0w8.png" alt="r5y0w8.png"></a></p>
+<p>   分为1到10个优先级，1的优先级最高。</p>
+<p>​            </p>
+<h3 id="二、wait-和sleep、notify"><a href="#二、wait-和sleep、notify" class="headerlink" title="二、wait 和sleep、notify"></a>二、wait 和sleep、notify</h3><p>wait 方法： 导致当前线程处于等待状态，直到另一个线程调用了该对象的notify或notifyall方法。执行wait()方法的前提是该对象必须拥有一个monitor，也就是说他只能被持有一个锁的线程调用。调用了此方法就会释放锁的所有权，等待其他线程来竞争这把锁。</p>
+<p>sleep方法： 导致当前线程处于休眠状态，但他不会释放任何锁的所有权。</p>
+<p>notify ：调用该方法会唤醒某个处于等待状态的线程，该线程不会马上获得monitor然后执行后续的操作，而是和其他线程公平的竞争这把锁。当某个线程获取到这把锁的时候，机会继续执行下去。</p>
+<p>notifyAll 方法： 他会唤醒所以处于等待的线程，其他同notify</p>
+<p>线程在如下三种情况下会获得锁：</p>
+<ol>
+<li>对于普通同步方法，锁是当前实例对象。</li>
+<li>对于静态同步方法，锁是当前类的Class对象。</li>
+<li>对于同步方法块，锁是Synchonized括号里配置的对象。</li>
+</ol>
+<blockquote>
+<p>一个对象在某一时刻只能持有一把锁</p>
+</blockquote>
+<h3 id="三、synchronized"><a href="#三、synchronized" class="headerlink" title="三、synchronized"></a>三、synchronized</h3><p>​    当一个对象有多个synchronized方法时，某个线程只会进入该该对象的任意一个方法，因为进入该方法需要获得当前对象的锁，而每一个对象在任意时只能拥有一把锁；当这个synchorized方法是static时，当前线程获取的是当前对象的class对象的锁。因此，同一个类的不同的对象的class对象也是相同的。</p>
+<p><strong>更多细节：</strong></p>
+<p>​    在1.6以前synchronized被我们称为重量级锁,自1.6以后synchroized得到了优化，为了减少锁的获得锁和释放锁带来性能的消耗，从而出现了偏向锁和轻量级锁。</p>
+<p>​    在JVM规范中。同步代码块是通过monitorenter和monitorexit实现的，而同步方法是则是用了另一个方法，在JVM中没有详细说明，通过反编译查看他的字节码可以得出它使用了一个ACC_SYNCHROIZED标志位来标志这是一个同步的方法，即当JVM发现某个方法存在这个标志位时，我进入方法之前会先获得该方法的monitor对象，在退出的时候会释放这把锁。</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/r7HJcn"><img src="https://s3.ax1x.com/2020/12/29/r7HJcn.png" alt="r7HJcn.png"></a></p>
+<p>但同步方法也可以用monitorenter和monitorexit实现。monitorenter指令是在编译后插入到同步代码块的开始位置，而monitorexit是插入到方法结束处和异常处，JVM要保证每个monitorenter必须有对应的monitorexit与之配对。任何对象都有一个monitor与之关联，当且一个monitor被持有后，它将处于锁定状态。线程执行到monitorenter指令时，将会尝试获取对象所对应的monitor的所有权，即尝试获得对象的锁。</p>
+<blockquote>
+<p>synchronized用的锁存在java的对象头中</p>
+</blockquote>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 why199627@gmail.com </span>
