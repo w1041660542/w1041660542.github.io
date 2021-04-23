@@ -696,7 +696,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-04-23 12:12:40'>2021-03-16 17:14</time>
+            发布时间 : <time class="date" title='最后更新: 2021-04-23 12:25:53'>2021-03-16 17:14</time>
         
     </div>
     <div class="article-meta">
@@ -754,7 +754,7 @@
 <p><strong>GitHub</strong></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/apache/rocketmq">https://github.com/apache/rocketmq</a></p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Linux下使用Maven编译源码安装"><a href="#Linux下使用Maven编译源码安装" class="headerlink" title="Linux下使用Maven编译源码安装"></a>Linux下使用Maven编译源码安装</h3><p>Rocketmq4.6+需要jdk1.8环境编译和运行</p>
-<p><img src="/2021/03/16/RocketMQ/blogs/source/_posts/image/image-20200218135102148.png" alt="image-20200218135102148"></p>
+<p><img src="/2021/03/16/RocketMQ/image-20200218135102148.png" alt="image-20200218135102148"></p>
 <p><strong>各版本要求</strong></p>
 <table>
 <thead>
@@ -808,7 +808,7 @@
 <td align="left">&gt;=1.8</td>
 </tr>
 </tbody></table>
-<h4 id="1-从GitHub上下载源码并上传到服务器"><a href="#1-从GitHub上下载源码并上传到服务器" class="headerlink" title="1.从GitHub上下载源码并上传到服务器"></a>1.从GitHub上下载源码并上传到服务器</h4><p><img src="/2021/03/16/RocketMQ/blogs/source/_posts/image/image-20200218134855528.png" alt="image-20200218134855528"></p>
+<h4 id="1-从GitHub上下载源码并上传到服务器"><a href="#1-从GitHub上下载源码并上传到服务器" class="headerlink" title="1.从GitHub上下载源码并上传到服务器"></a>1.从GitHub上下载源码并上传到服务器</h4><p><img src="/2021/03/16/RocketMQ/image-20200218134855528.png" alt="image-20200218134855528"></p>
 <h4 id="2-在Linux上安装Maven"><a href="#2-在Linux上安装Maven" class="headerlink" title="2.在Linux上安装Maven"></a>2.在Linux上安装Maven</h4><p><strong>下载Maven</strong></p>
 <pre><code>wget https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz</code></pre>
 <p><strong>添加阿里云镜像</strong></p>
@@ -834,15 +834,15 @@ export PATH=&quot;.$PATH:$JAVA_HOME/bin&quot;</code></pre>
 <h4 id="3-启动nameserver"><a href="#3-启动nameserver" class="headerlink" title="3.启动nameserver"></a>3.启动nameserver</h4><p><code>bin</code>目录下执行</p>
 <pre><code>./mqnamesrv</code></pre>
 <p>正常提示</p>
-<p><img src="/2021/03/16/RocketMQ/blogs/source/_posts/image/image-20200218150050167.png" alt="image-20200218150050167"></p>
+<p><img src="/2021/03/16/RocketMQ/image-20200218150050167.png" alt="image-20200218150050167"></p>
 <h4 id="4-启动Broker"><a href="#4-启动Broker" class="headerlink" title="4.启动Broker"></a>4.启动Broker</h4><pre><code>./mqbroker -n localhost:9876</code></pre>
 <p>正常提示</p>
-<p><img src="/2021/03/16/RocketMQ/blogs/source/_posts/image-rocketMQ/image-20200218150114714.png" alt="image-20200218150114714"></p>
+<p><img src="/2021/03/16/RocketMQ/image-20200218150114714.png" alt="image-20200218150114714"></p>
 <h4 id="5-测试消息发送"><a href="#5-测试消息发送" class="headerlink" title="5.测试消息发送"></a>5.测试消息发送</h4><p>使用<code>tool.sh</code>脚本执行测试程序</p>
 <p>在<code>bin</code>目录下执行</p>
 <pre><code>./tools.sh org.apache.rocketmq.example.quickstart.Producer</code></pre>
 <p>提示如下表示成功</p>
-<p><img src="/2021/03/16/RocketMQ/blogs/source/_posts/image/image-20200218145049603.png" alt="image-20200218145049603"></p>
+<p><img src="/2021/03/16/RocketMQ/image-20200218145049603.png" alt="image-20200218145049603"></p>
 <p><strong>6.接受消息</strong></p>
 <pre><code>./tools.sh org.apache.rocketmq.example.quickstart.Consumer</code></pre>
 <h3 id="控制台rocketmq-console编译安装"><a href="#控制台rocketmq-console编译安装" class="headerlink" title="控制台rocketmq-console编译安装"></a>控制台rocketmq-console编译安装</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p><a target="_blank" rel="noopener" href="https://github.com/apache/rocketmq-externals">https://github.com/apache/rocketmq-externals</a></p>
@@ -856,7 +856,7 @@ export PATH=&quot;.$PATH:$JAVA_HOME/bin&quot;</code></pre>
 <pre><code>java -jar rocketmq-console-ng-1.0.1.jar --rocketmq.config.namesrvAddr=127.0.0.1:9876
 </code></pre>
 <p>启动成功后访问服务器8080端口即可</p>
-<p><img src="/2021/03/16/RocketMQ/blogs/source/_posts/image/image-20200218155021928.png" alt="image-20200218155021928"></p>
+<p><img src="/2021/03/16/RocketMQ/image-20200218155021928.png" alt="image-20200218155021928"></p>
 <h4 id="pom-xml依赖"><a href="#pom-xml依赖" class="headerlink" title="pom.xml依赖"></a>pom.xml依赖</h4><pre><code class="xml"> &lt;dependency&gt;
         &lt;groupId&gt;org.apache.rocketmq&lt;/groupId&gt;
         &lt;artifactId&gt;rocketmq-client&lt;/artifactId&gt;
