@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>PASSWORD 工具类 | why_bolg</title>
+  <title>IO | why_bolg</title>
   <meta name="keywords" content=" java工具 ">
-  <meta name="description" content="PASSWORD 工具类 | why_bolg">
+  <meta name="description" content="IO | why_bolg">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="关于  别看了，啥也没有。">
 <meta property="og:type" content="website">
@@ -685,9 +685,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-passwordunit" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-linux文件" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">PASSWORD 工具类</h1>
+        <h1 class="article-title">IO</h1>
     
     <div class="article-meta">
         
@@ -697,7 +697,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="java">java</a>
+            <a  data-rel="Linux">Linux</a>
             
         </span>
         
@@ -712,7 +712,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-08-30 10:55:41'>2020-08-15 11:19</time>
+            发布时间 : <time class="date" title='最后更新: 2021-04-23 13:59:09'>2021-02-15 11:13</time>
         
     </div>
     <div class="article-meta">
@@ -745,7 +745,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PASSWORDUtil"><span class="toc-text">PASSWORDUtil</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">Linux 文件系统</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -761,55 +761,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="PASSWORDUtil"><a href="#PASSWORDUtil" class="headerlink" title="PASSWORDUtil"></a>PASSWORDUtil</h2><pre><code>package com.why.util;
-
-import com.why.model.SysUser;
-
-import java.util.Date;
-import java.util.Random;
-
-public class PasswordUtil &#123;
-
-    public final static String[] word = &#123;
-            &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;,
-            &quot;h&quot;, &quot;j&quot;, &quot;k&quot;, &quot;m&quot;, &quot;n&quot;,
-            &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;,
-            &quot;u&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;,
-            &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;,
-            &quot;H&quot;, &quot;J&quot;, &quot;K&quot;, &quot;M&quot;, &quot;N&quot;,
-            &quot;P&quot;, &quot;Q&quot;, &quot;R&quot;, &quot;S&quot;, &quot;T&quot;,
-            &quot;U&quot;, &quot;V&quot;, &quot;W&quot;, &quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;
-    &#125;;
-
-    public final static String[] num = &#123;
-            &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;
-    &#125;;
-
-    public static String randomPassword() &#123;
-        StringBuffer stringBuffer = new StringBuffer();
-        Random random = new Random(new Date().getTime());
-        boolean flag = false;
-        int length = random.nextInt(3) + 8;
-        for (int i = 0; i &lt; length; i++) &#123;
-            if (flag) &#123;
-                stringBuffer.append(num[random.nextInt(num.length)]);
-            &#125; else &#123;
-                stringBuffer.append(word[random.nextInt(word.length)]);
-            &#125;
-            flag = !flag;
-        &#125;
-        return stringBuffer.toString();
-    &#125;
-
-    public static void main(String[] args) throws Exception &#123;
-        System.out.println(randomPassword());
-        Thread.sleep(100);
-        System.out.println(randomPassword());
-        Thread.sleep(100);
-        System.out.println(randomPassword());
-    &#125;
-&#125;</code></pre>
-<p>​            </p>
+        <h3 id="Linux-文件系统"><a href="#Linux-文件系统" class="headerlink" title="Linux 文件系统"></a>Linux 文件系统</h3><p>​    linux有一个虚拟的文件系统，以/开始</p>
+<p>​    在linux中输入<code>df</code>可以查看linux不同分成的挂载情况</p>
+<p><img src="/2021/02/15/linux%E6%96%87%E4%BB%B6/blogs\source_posts\image\io\df.png" alt="df"></p>
+<p>磁盘中有两个boot目录，系统启动一个，给用户看的是另一个。</p>
+<p>文件系统的目录结构是稳定，可以通过挂载不同的磁盘来改变里面的内容。</p>
+<p> 冯诺依曼提出的计算机是由 控制器，主存储器和输入输出设备组成。linux在此基础上抽象出<strong>一切皆文件</strong></p>
+<p>linux 系统中文件的类型：</p>
+<p><img src="/2021/02/15/linux%E6%96%87%E4%BB%B6/blogs\source_posts\image\io\20210423132940.png" alt="20210423132940"></p>
+<p><code>lsof</code> 命令显示当前进程打开的文件</p>
+<p><code>fd</code>表示文件描述符 ,文件描述符就是描述文件的基本信息和指针的偏移。</p>
+<p>swap linux操作系统数据交换的过程。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 why199627@gmail.com </span>
